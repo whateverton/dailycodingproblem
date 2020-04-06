@@ -1,6 +1,6 @@
 /*
 
-Enunciado original:
+Original e-mail:
 
 This problem was asked by Google.
 
@@ -18,9 +18,9 @@ For example, the following tree has 5 unival subtrees:
   / \
  1   1
  
-Proposto: Anderson
-Data: 03/04/2020
-Tempo: 
+Proposed by: Anderson
+Date: 03/04/2020
+Dev Time: 
 */
 
 int main (int argc, char **argv)
