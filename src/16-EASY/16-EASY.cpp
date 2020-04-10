@@ -82,14 +82,19 @@ public:
         return true;
     }
 
-    bool get_last(int* last)
+    int get_last(int i_last)
     {
-         if ((log_size == 0) || (last == NULL))
-            return false;
+        int elem;
 
-        *last = log[head];
-        
-        return true;
+        if ((log_size == 0) || (i_last > log_size) || (i_last == 0))
+           return -1;
+
+        elem = head - i_last + 1;
+
+        if ((elem) < 0)
+            elem += log_size;
+
+        return log[elem];
     }
 
 private:
@@ -101,7 +106,7 @@ private:
 
 int main()
 {
-    OrderIdLog my_log(5);
+    OrderIdLog my_log(2);
     int last;
 
     my_log.record(1);
@@ -113,7 +118,9 @@ int main()
 
     my_log.print();
 
-    if (my_log.get_last(&last))
+    last = my_log.get_last(2);
+
+    if (last != -1)
         cout << "Last logged element: " << last << endl;
     else
         cout << "Log is empty!\n";
