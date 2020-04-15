@@ -36,6 +36,7 @@ typedef struct myTree
     myTree* right;
 }myTree;
 
+/*
 myTree branch4 = { 0, NULL, NULL };
 myTree branch6 = { 1, NULL, NULL };
 myTree branch5 = { 1, NULL, NULL };
@@ -43,19 +44,33 @@ myTree branch3 = { 1, &branch5, &branch6 };
 myTree branch2 = { 0, &branch3, &branch4 };
 myTree branch1 = { 1, NULL, NULL };
 myTree root = { 0, &branch1, &branch2 };
+*/
+
+myTree branch4 = { 5, NULL, NULL };
+myTree branch2 = { 5, NULL, &branch4 };
+myTree branch5 = { 5, NULL, NULL };
+myTree branch3 = { 5, NULL, NULL };
+myTree branch1 = { 1, &branch3, &branch5 };
+myTree root = { 5, &branch1, &branch2 };
+
 
 int count_tree = 0;
 
-void isUnivalTree(int value, myTree* tree)
+bool isUnivalTree(int value, myTree* tree)
 {
     if (tree == NULL)
-        return;
+        return true;
     
-    isUnivalTree(tree->value, tree->left);
-    isUnivalTree(tree->value, tree->right);
+    if (isUnivalTree(tree->value, tree->left) && isUnivalTree(tree->value, tree->right))
+    {
+        if (tree->value == value)
+        {
+            ++count_tree;
+            return true;
+        }
+    }
 
-    if (tree->value == value)
-        ++count_tree;
+    return false;
 }
 
 int main(int argc, char** argv)
