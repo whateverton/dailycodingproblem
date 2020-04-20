@@ -1,4 +1,5 @@
 /*
+#1-EASY
 This problem was recently asked by Google.
 
 Given a list of numbersand a number k, return whether any two numbers from the list add up to k.
@@ -47,7 +48,8 @@ MY_LIST_T anyTwoAddUp(MY_LIST_T* local_list, int k)
     return ret_list;
 }
 
-int main()
+#ifdef _1_EASY_
+void CurrentSolution()
 {
     MY_LIST_T res_list = anyTwoAddUp(&given_list, MAGIC_NUMBER);
 
@@ -59,6 +61,5 @@ int main()
         for(MY_LIST_T::iterator it = res_list.begin(); it != res_list.end(); ++it)
             cout << *it << endl;
     }
-
-    return 0;
 }
+#endif

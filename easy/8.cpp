@@ -1,109 +1,83 @@
 /*
-#20 - EASY
+#8-EASY
+Original e-mail:
+
 This problem was asked by Google.
 
-Given two singly linked lists that intersect at some point, find the intersecting node.The lists are non - cyclical.
+A unival tree (which stands for "universal value") is a tree where all nodes under it have the same value.
 
-For example, given A = 3 -> 7 -> 8 -> 10 and B = 99 -> 1 -> 8 -> 10, return the node with value 8.
+Given the root to a binary tree, count the number of unival subtrees.
 
-In this example, assume nodes with the same value are the exact same node objects.
+For example, the following tree has 5 unival subtrees:
 
-Do this in O(M + N) time(where M and N are the lengths of the lists) and constant space.
+   0
+  / \
+ 1   0
+    / \
+   1   0
+  / \
+ 1   1
 
-Date: 08/04/2020
-Dev Time: 20h45 - 
-
+Proposed by: Anderson
+Date: 03/04/2020
+Dev Time: 40min
 */
 
-typedef struct linked_list
-{
-	int value;
-	struct linked_list* next;
-}linked_list_t;
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
 
-linked_list_t* list_A = NULL;
-linked_list_t* list_B = NULL;
-linked_list_t* list_C = NULL;
+using namespace std;
 
-void AddItem(linked_list** list, int item)
+typedef struct myTree
 {
-	if (*list == NULL)
-	{
-		*list = new(linked_list_t);
-		(*list)->value = item;
-		(*list)->next = NULL;
-	}
-	else
-		AddItem(&(*list)->next, item);
+    int value;
+    myTree* left;
+    myTree* right;
+}myTree;
+
+/*
+myTree branch4 = { 0, NULL, NULL };
+myTree branch6 = { 1, NULL, NULL };
+myTree branch5 = { 1, NULL, NULL };
+myTree branch3 = { 1, &branch5, &branch6 };
+myTree branch2 = { 0, &branch3, &branch4 };
+myTree branch1 = { 1, NULL, NULL };
+myTree root = { 0, &branch1, &branch2 };
+*/
+
+myTree branch4 = { 5, NULL, NULL };
+myTree branch2 = { 5, NULL, &branch4 };
+myTree branch5 = { 5, NULL, NULL };
+myTree branch3 = { 5, NULL, NULL };
+myTree branch1 = { 1, &branch3, &branch5 };
+myTree root = { 5, &branch1, &branch2 };
+
+
+int count_tree = 0;
+
+bool isUnivalTree(int value, myTree* tree)
+{
+    if (tree == NULL)
+        return true;
+    
+    if (isUnivalTree(tree->value, tree->left) && isUnivalTree(tree->value, tree->right))
+    {
+        if (tree->value == value)
+        {
+            ++count_tree;
+            return true;
+        }
+    }
+
+    return false;
 }
 
-void AddList(linked_list** list, linked_list* item)
+#ifdef _8_EASY_
+void CurrentSolution()
 {
-	if (*list == NULL)
-	{
-		*list = item;
-	}
-	else
-		AddList(&(*list)->next, item);
+    isUnivalTree(root.value, &root);
+
+    std::cout << "Total unival subtrees: " << count_tree << endl;
 }
-
-void RemoveItem(linked_list *list, int item)
-{
-// No time to create a removal function
-}
-
-void ClearList(linked_list** list)
-{
-	if (*list != NULL)
-	{
-		ClearList(&(*list)->next);
-		delete *list;
-		*list = NULL;
-	}
-}
-
-linked_list* FindItem(linked_list* list, int item)
-{
-	if (list != NULL)
-	{
-		if (list->value == item)
-			return list;
-		else
-			return FindItem(list->next, item);
-	}
-
-	return NULL;
-}
-
-int FindIntersect(linked_list* A, linked_list* B)
-{
-	linked_list *intersect;
-
-	if ((A == NULL) || (B == NULL))
-		return -1;
-
-	for (linked_list* it = A; it != NULL; it = it->next)
-	{
-		intersect = FindItem(B, it->value);
-
-		if (intersect != NULL)
-			return intersect->value;
-	}
-
-	return -1;
-}
-
-void CreateLists(void)
-{
-	// A = 3 -> 7 -> 8 -> 10 and B = 99 -> 1 -> 8 -> 10
-	AddItem(&list_C, 8);
-	AddItem(&list_C, 10);
-
-	AddItem(&list_A, 3);
-	AddItem(&list_A, 7);
-	AddList(&list_A, list_C);
-
-	AddItem(&list_B, 99);
-	AddItem(&list_B, 1);
-	AddList(&list_B, list_C);
-}
+#endif

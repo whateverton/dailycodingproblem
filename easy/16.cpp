@@ -104,7 +104,8 @@ private:
     int* log;
 };
 
-int main()
+#ifdef _16_EASY_
+void CurrentSolution()
 {
     OrderIdLog my_log(2);
     int last;
@@ -125,3 +126,4 @@ int main()
     else
         cout << "Log is empty!\n";
 }
+#endif

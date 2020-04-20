@@ -15,6 +15,11 @@ Dev Time: -
 
 */
 
+// CRAZY IDEA:
+// If we store the list in ascending order, we just need to run backwards and find the first different item
+// This gave me an insight: if they intersect, they never separate again, so it wil ALWAYS be equal from the point they join... So, we don't even need to create it in ascending order
+#include <iostream>
+
 typedef struct linked_list
 {
 	int value;
@@ -107,3 +112,12 @@ void CreateLists(void)
 	AddItem(&list_B, 1);
 	AddList(&list_B, list_C);
 }
+
+#ifdef _20_EASY_
+void CurrentSolution()
+{
+	CreateLists();
+
+	std::cout << FindIntersect(list_A, list_B);
+}
+#endif

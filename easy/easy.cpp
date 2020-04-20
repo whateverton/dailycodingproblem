@@ -1,13 +1,14 @@
-#include <iostream>
-#include "20.cpp"
+#define _21_EASY_
 
-#define _20_EASY_
+#include "1.cpp"
+#include "8.cpp"
+#include "16.cpp"
+#include "20.cpp"
+#include "21.cpp"
+
+// Melhorar pra escolher qual rodar por parametro
 
 int main()
 {
-    #ifdef _20_EASY_
-    CreateLists();
-
-    std::cout << FindIntersect(list_A, list_B);
-    #endif
+    CurrentSolution();
 }
