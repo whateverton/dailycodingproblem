@@ -9,6 +9,7 @@ Given two strings, compute the edit distance between them.
 Date: 04/05/2020
 Dev Time: 2h47 - 3h05 = 18min - Nonsense logic, works only with the example
 		  3h08 - 3h18 = 10min - Creating a testing system that makes my code fail
+		  3h18 - 3h41 = 23min - Optmizing to get containing cases
 */
 #include <string>
 
@@ -19,11 +20,15 @@ int getEditDistance(std::string s1, std::string s2)
 {
 	int edit_distance = 0;
 
-	for (size_t i = 0; i < min_value(s1.size(), s2.size()); ++i)
+	// If some of the string is contains the other, just calculate the size difference
+	if ((s1.find(s2) >= string::npos) && (s2.find(s1) >= string::npos))
 	{
-		if (s1[i] != s2[i])
+		for (size_t i = 0; i < min_value(s1.size(), s2.size()); ++i)
 		{
-			++edit_distance;
+			if (s1[i] != s2[i])
+			{
+				++edit_distance;
+			}
 		}
 	}
 
@@ -42,9 +47,14 @@ void CurrentSolution()
 		std::string s1;
 		std::string s2;
 		int distance;
-	} test_strings [] = { {"kitten", "sitting", 3},
-						  {"cat", "gap", 2},
-						  {"keep", "sweep", 2} };
+	} test_strings [] =
+	{
+		{"kitten", "sitting", 3},	// original test case
+		{"cat", "gap", 2},			// some random test
+		{"car", "scared", 3},		// s2 contains s1, not from the start
+		{"keep", "sweep", 2},		// the end is the same, should add to the begining
+		{"keep", "sweeper", 4}		// middle is equal
+	};
 
 	for (int i = 0; i < ARRAY_SIZE(test_strings); ++i)
 	{
