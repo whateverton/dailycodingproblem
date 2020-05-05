@@ -10,6 +10,8 @@ Date: 04/05/2020
 Dev Time: 2h47 - 3h05 = 18min - Nonsense logic, works only with the example
 		  3h08 - 3h18 = 10min - Creating a testing system that makes my code fail
 		  3h18 - 3h41 = 23min - Optmizing to get containing cases
+
+Possible improvement: use Levenshtein distance
 */
 #include <string>
 
