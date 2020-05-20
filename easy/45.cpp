@@ -6,6 +6,7 @@ Using a function rand5() that returns an integer from 1 to 5 (inclusive) with un
 
 Date: 19/05/2020
 Dev Time: 20min - 1 and 7 apper more than the other numbers (1=16077, 2=12122, 3=11931, 4=12015, 5=12055, 6=15881, 7=19919)
+22h - 22h30 = 30min - worked, but I googled it
 */
 #include <stdlib.h>
 
@@ -16,7 +17,12 @@ int rand5()
 
 int rand7()
 {
-	int value = rand5() + rand5();
+	int value = 0;
+
+	for (int i = 0; i < 7; ++i)
+	{
+		value += rand5();
+	}
 
 	value = ((value % 7) + 1);
 
@@ -26,7 +32,7 @@ int rand7()
 #ifdef _45_EASY_
 void CurrentSolution()
 {
-	const int total_runs = 100000;
+	const int total_runs = 200000;
 	int pesos[7] = {0};
 
 	for (int i = 0; i < total_runs; ++i)
