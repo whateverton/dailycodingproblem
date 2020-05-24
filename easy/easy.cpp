@@ -1,4 +1,4 @@
-#define _45_EASY_
+#define _47_EASY_
 
 #include "1.cpp"
 #include "8.cpp"
@@ -12,6 +12,7 @@
 #include "37.cpp"
 #include "43.cpp"
 #include "45.cpp"
+#include "47.cpp"
 
 // Melhorar pra escolher qual rodar por parametro
 
