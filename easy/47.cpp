@@ -7,7 +7,7 @@ Given a array of numbers representing the stock prices of a company in chronolog
 For example, given [9, 11, 8, 5, 7, 10], you should return 5, since you could buy the stock at 5 dollars and sell it at 10 dollars.
 
 Date: 21/05/2020
-Dev Time: 18h40 - x = min - 
+Dev Time: 18h40 - 19h = 20min
 */
 
 int whenShouldIBuy(int *stocks, int size)
