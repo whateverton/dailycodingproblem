@@ -69,6 +69,12 @@ char matrix[4][4] = {{'F', 'A', 'C', 'I'},
                       {'A', 'N', 'O', 'B'},
                       {'M', 'A', 'S', 'S'}};
 
+
+    std::cout << "Found MASSA? " << (findWord(matrix[0], 4, 4, "MASSA") ? "Y" : "N") << std::endl;
+    std::cout << "Found MAS? " << (findWord(matrix[0], 4, 4, "MAS") ? "Y" : "N") << std::endl;
+    std::cout << "Found ASS? " << (findWord(matrix[0], 4, 4, "ASS") ? "Y" : "N") << std::endl;
+    std::cout << "Found AS? " << (findWord(matrix[0], 4, 4, "AS") ? "Y" : "N") << std::endl;
+
     // X
     std::cout << "Found FOAM? " << (findWord(matrix[0], 4, 4, "FOAM") ? "Y" : "N") << std::endl;
     std::cout << "Found ABNA? " << (findWord(matrix[0], 4, 4, "ABNA") ? "Y" : "N") << std::endl;
