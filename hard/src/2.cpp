@@ -12,6 +12,10 @@ Date: 07/06/2020
 Dev Time: 18h09min - 18h36 = 27min
 */
 
+#ifdef VS_IDE
+#include "helper.h"
+#endif
+
 #include <iostream>
 #include <vector>
 
@@ -30,14 +34,6 @@ void changeArray(vector<int> *original, vector<int> *result)
 	for (size_t i = 0; i < original->size(); ++i)
 	{
 		(*result).push_back(product / (*original)[i]);
-	}
-}
-
-void printVector(vector<int> print)
-{
-	for(vector<int>::iterator it = print.begin(); it != print.end(); ++it)
-	{
-		cout << *it << ",";
 	}
 }
 

@@ -152,9 +152,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\2.cpp" />
+    <ClCompile Include="src\4.cpp" />
     <ClCompile Include="src\hard.cpp" />
+    <ClCompile Include="src\helper.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\helper.h" />
     <ClInclude Include="src\problems.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
