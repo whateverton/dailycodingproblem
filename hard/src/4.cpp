@@ -29,22 +29,18 @@ int findMissingInt(vector<int> *v)
 	if (v->size() == 0)
 		return -1;
 
-	sort(v->begin(), v->end());
+	sort(v->begin(), v->end(), [](int& a, int& b) { return (a <= 0) ? (b < a) : (a < b););
 
 	// Zero isn't the first positive integer (?) :o
 	int next_greater_int = 1;
 
 	for (size_t i = 0; i < v->size(); ++i)
 	{
-		if ((*v)[i] <= 0)
-		{
-			continue;
-		}
-		else if (next_greater_int == (*v)[i])
+		if (next_greater_int == (*v)[i])
 		{
 			next_greater_int = (*v)[i] + 1;
 		}
-		else if (next_greater_int < (*v)[i])
+		else if ((next_greater_int < (*v)[i]) || ((*v)[i] <= 0))
 		{
 			break;
 		}
