@@ -2,6 +2,12 @@
 
 void problem2();
 void problem4();
+void problem6();
+void problem9();
+void problem12();
+void problem13();
+void problem17();
+void problem18();
 
 void (*problem_func[])(void) =
 {
@@ -10,4 +16,18 @@ void (*problem_func[])(void) =
 	,problem2	// 2
 	,nullptr	// 3
 	,problem4	// 4
+	,nullptr	// 5
+	,problem6	// 6
+	,nullptr	// 7
+	,nullptr	// 8
+	,problem9	// 9
+	,nullptr	// 10
+	,nullptr	// 11
+	,problem12	// 12
+	,problem13	// 13
+	,nullptr	// 14
+	,nullptr	// 15
+	,nullptr	// 16
+	,problem17	// 17
+	,problem18	// 17
 };

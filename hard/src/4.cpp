@@ -22,14 +22,12 @@ Dev Time: 0h19 - 1h = 41min
 
 using namespace std;
 
-#define ARRAY_SIZE(x) (sizeof(x)/sizeof(x[0]))
-
 int findMissingInt(vector<int> *v)
 {
 	if (v->size() == 0)
 		return -1;
 
-	sort(v->begin(), v->end(), [](int& a, int& b) { return (a <= 0) ? (b < a) : (a < b););
+	//sort(v->begin(), v->end(), [](int& a, int& b) { return (a <= 0) ? (b < a) : (a < b););
 
 	// Zero isn't the first positive integer (?) :o
 	int next_greater_int = 1;

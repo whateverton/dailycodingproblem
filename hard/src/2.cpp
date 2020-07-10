@@ -21,8 +21,6 @@ Dev Time: 18h09min - 18h36 = 27min
 
 using namespace std;
 
-#define ARRAY_SIZE(x) (sizeof(x)/sizeof(x[0]))
-
 void changeArray(vector<int> *original, vector<int> *result)
 {
 	int product = 1;
