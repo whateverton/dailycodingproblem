@@ -6,21 +6,32 @@
 int main(int argc, char **argv)
 {
     void (*current_problem)();
-    int index;
+    int index = -1;
 
     if (argc > 1)
     {
         index = atoi(argv[1]);
     }
-    else
+    
+    do
     {
-        std::cout << "Digite o problema desejado [HARD]: " << std::endl;
+        if (index == -1)
+        {
+            std::cout << "Digite o problema desejado [HARD]: " << std::endl;
 
-        std::cin >> index;
-    }
+            std::cin >> index;
+        }
 
-    current_problem = problem_func[index];
+        current_problem = problem_func[index];
 
-    if (current_problem != nullptr)
-        (*current_problem)();
+        if (current_problem != nullptr)
+        {
+            (*current_problem)();
+        }
+        else
+        {
+            index = -1;
+            std::cout << "Funcao nao encontrada!" << std::endl;
+        }
+    } while (index == -1);
 }

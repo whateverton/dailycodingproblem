@@ -22,7 +22,6 @@ bool RegexMatch(std::string regex, std::string str)
 {
 	char any_qtd_char = 0;
 	char get_next = false;
-	bool any_char = false;
 	int str_index = str.size() - 1;
 	bool res = true;
 
@@ -57,6 +56,9 @@ bool RegexMatch(std::string regex, std::string str)
 			if (regex[i] == str[str_index])
 			{
 				--str_index;
+				if (!str_index)
+					break;
+
 				continue;
 			}
 			else
@@ -69,6 +71,9 @@ bool RegexMatch(std::string regex, std::string str)
 		if (regex[i] == '.')
 		{
 			--str_index;
+			if (!str_index)
+				break;
+
 			continue;
 		}
 	}
