@@ -159,7 +159,9 @@
     <ClCompile Include="src\25.cpp" />
     <ClCompile Include="src\32.cpp" />
     <ClCompile Include="src\35.cpp" />
+    <ClCompile Include="src\38.cpp" />
     <ClCompile Include="src\4.cpp" />
+    <ClCompile Include="src\40.cpp" />
     <ClCompile Include="src\6.cpp" />
     <ClCompile Include="src\9.cpp" />
     <ClCompile Include="src\hard.cpp" />

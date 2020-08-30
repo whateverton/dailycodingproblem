@@ -11,6 +11,8 @@ void problem18();
 void problem25();
 void problem32();
 void problem35();
+void problem38();
+void problem40();
 
 void (*problem_func[])(void) =
 {
@@ -50,4 +52,9 @@ void (*problem_func[])(void) =
 	,nullptr	// 33
 	,nullptr	// 34
 	,problem35  // 35
+	,nullptr	// 36
+	,nullptr	// 37
+	,problem38	// 38
+	,nullptr	// 39
+	,problem40	// 40
 };
